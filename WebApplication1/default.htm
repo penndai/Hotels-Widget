@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HotelsCombined</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-6" id="tkoWidget">
+            <!-- Place the Tokyo widget here (filename=Tokyo)  -->
+
+        </div>
+
+        <div class="col-sm-6" id="nycWidget">
+            <!-- Place the New York City widget here (filename=New_York_City)  -->
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        getStockUpdates();
+        setInterval(function () { $('#tkoWidget').load('/HotelWidget/Index/1'); }, 3000);
+    });
+
+    function RefreshWidget(i) {
+        if (i == 1) {
+            $("#tkoWidget").load('/HotelWidget/Index/1');
+        }
+        else if (i == 2) {
+            $("#nycWidget").load('/HotelWidget/Index/2');
+        }
+    }
+
+    function getStockUpdates() {           
+        $("#tkoWidget").load('/HotelWidget/Index/1');
+        $("#nycWidget").load('/HotelWidget/Index/2');
+    }
+</script>
